@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>660632776262-70cb07aram92arfss8ufahustf01c2cf.apps.googleusercontent.com</string>
+	<string>1045894616652-o4poc1hrkmgur4ld0805tn770jnd31bc.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.660632776262-70cb07aram92arfss8ufahustf01c2cf</string>
+	<string>com.googleusercontent.apps.1045894616652-o4poc1hrkmgur4ld0805tn770jnd31bc</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAvVAV0TTuP2pmvsBFdGds4O70o4LtkIoA</string>
+	<string>AIzaSyBm-cVQC3DAhtjuUJoxeWBQXVDOpdqIfgE</string>
 	<key>GCM_SENDER_ID</key>
-	<string>660632776262</string>
+	<string>1045894616652</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>SiS.FirebaseChat</string>
 	<key>PROJECT_ID</key>
-	<string>fir-test-be704</string>
+	<string>fir-chat-50f74</string>
 	<key>STORAGE_BUCKET</key>
-	<string>fir-test-be704.appspot.com</string>
+	<string>fir-chat-50f74.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:660632776262:ios:8815109f403099f3</string>
+	<string>1:1045894616652:ios:8815109f403099f3</string>
 	<key>DATABASE_URL</key>
-	<string>https://fir-test-be704.firebaseio.com</string>
+	<string>https://fir-chat-50f74.firebaseio.com</string>
 </dict>
 </plist>

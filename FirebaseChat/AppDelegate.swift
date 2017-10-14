@@ -8,15 +8,27 @@
 
 import UIKit
 import Firebase
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        let center = UNUserNotificationCenter.current()
+        center.delegate = self
+        // ios 10 support
+        if #available(iOS 10, *) {
+            center.requestAuthorization(options: [.badge, .alert, .sound], completionHandler:  {(granted, error) in })
+            application.registerForRemoteNotifications()
+        } else {
+            let notificationSettings = UIUserNotificationSettings(types: [.badge, .alert, .sound], categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(notificationSettings)
+            UIApplication.shared.registerForRemoteNotifications()
+        }
         return true
     }
 
@@ -42,6 +54,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        print("Recived: \(userInfo)")
 
+        completionHandler(.newData)
+    }
 }
 

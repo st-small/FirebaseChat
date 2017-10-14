@@ -74,44 +74,108 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Никнейм" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2TZ-QP-Rsj" customClass="MagicField" customModule="FirebaseChat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="295" height="25"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.87" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.87" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="n3q-BD-q7J"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Номер телефона" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oJr-it-O8t" customClass="MagicField" customModule="FirebaseChat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="45" width="295" height="25"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.87" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.87" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="qhD-Nt-7Cq"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0i-xy-G1g" customClass="MagicBtn" customModule="FirebaseChat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="90" width="295" height="37"/>
                                         <color key="backgroundColor" red="0.36078431372549019" green="0.41960784313725491" blue="0.75294117647058822" alpha="0.87" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
-                                        <state key="normal" title="Войти">
+                                        <state key="normal" title="Получить код">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="sendCode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FGn-DZ-LbC"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Kps-c9-tzN">
+                                <rect key="frame" x="40" y="230" width="295" height="102"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Код подтверждения" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OEO-KU-kca" customClass="MagicField" customModule="FirebaseChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="25"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.87" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="EAd-YN-Xgo"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXG-Ma-a9G" customClass="MagicBtn" customModule="FirebaseChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="65" width="295" height="37"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.41960784309999999" blue="0.75294117650000003" alpha="0.87" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                        <state key="normal" title="Войти">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="logIN:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PkV-pN-GGJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6UA-sv-0kq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="vbJ-0Q-NX3">
+                                <rect key="frame" x="167" y="313" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Kmj-5W-Aij"/>
+                                    <constraint firstAttribute="height" constant="40" id="qac-mA-NJM"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Kps-c9-tzN" firstAttribute="top" secondItem="8jy-Tt-RxA" secondAttribute="bottom" constant="30" id="0OT-IE-TOM"/>
                             <constraint firstItem="mJG-O1-6bo" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="3gK-V4-88l"/>
+                            <constraint firstItem="6UA-sv-0kq" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="45m-TD-7lL"/>
                             <constraint firstItem="2Oe-wJ-m28" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="7ah-hj-D3F"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8jy-Tt-RxA" secondAttribute="trailing" constant="16" id="CQG-JJ-lIT"/>
+                            <constraint firstItem="vbJ-0Q-NX3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="LDR-IJ-0HR"/>
+                            <constraint firstItem="6UA-sv-0kq" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="OvM-6Q-uRu"/>
                             <constraint firstItem="2Oe-wJ-m28" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="YQ1-ur-zWT"/>
                             <constraint firstItem="8jy-Tt-RxA" firstAttribute="top" secondItem="2Oe-wJ-m28" secondAttribute="bottom" constant="30" id="ae0-2x-yzt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Kps-c9-tzN" secondAttribute="trailing" constant="40" id="bZg-oW-ETm"/>
                             <constraint firstItem="2Oe-wJ-m28" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bxJ-Oj-9Xe"/>
                             <constraint firstItem="8jy-Tt-RxA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="dJX-oI-9d3"/>
+                            <constraint firstItem="6UA-sv-0kq" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="etw-6t-CWS"/>
                             <constraint firstItem="xlZ-Cw-3zb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="ewT-Up-gFu"/>
                             <constraint firstItem="mJG-O1-6bo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gHw-Jq-Yeg"/>
+                            <constraint firstItem="6UA-sv-0kq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="get-Hk-pLG"/>
+                            <constraint firstItem="Kps-c9-tzN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="i7y-tt-hxw"/>
+                            <constraint firstItem="6UA-sv-0kq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mGk-Xe-9qn"/>
                             <constraint firstItem="xlZ-Cw-3zb" firstAttribute="top" secondItem="8jy-Tt-RxA" secondAttribute="bottom" constant="30" id="mRT-g6-67u"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xlZ-Cw-3zb" secondAttribute="trailing" constant="40" id="qYE-xn-Cv7"/>
+                            <constraint firstItem="vbJ-0Q-NX3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="saE-Xk-o25"/>
                             <constraint firstItem="mJG-O1-6bo" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="tIM-aM-kKi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="codeTF" destination="OEO-KU-kca" id="KM8-sq-6mk"/>
+                        <outlet property="grayView" destination="6UA-sv-0kq" id="KzC-ru-1GM"/>
+                        <outlet property="indicator" destination="vbJ-0Q-NX3" id="pdr-pZ-uXU"/>
+                        <outlet property="nicknameTF" destination="2TZ-QP-Rsj" id="acc-4b-kJV"/>
+                        <outlet property="phoneNum" destination="oJr-it-O8t" id="Fjr-yn-v2n"/>
+                        <outlet property="stackView" destination="xlZ-Cw-3zb" id="gAV-qK-pFd"/>
+                        <outlet property="stackView2" destination="Kps-c9-tzN" id="g5i-Wb-gyS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
