@@ -124,9 +124,7 @@ class SignInVC: UIViewController, UITextFieldDelegate {
     }
     
     private func openLoggedVC() {
-        //let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoggedVC") as! LoggedVC
-        let vc = UIViewController()
-        vc.view.backgroundColor = .red
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "nav") as! UINavigationController
         self.present(vc, animated: true, completion: nil)
     }
 }

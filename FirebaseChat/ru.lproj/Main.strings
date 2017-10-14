@@ -1,0 +1,24 @@
+
+/* Class = "UITextField"; placeholder = "Никнейм"; ObjectID = "2TZ-QP-Rsj"; */
+"2TZ-QP-Rsj.placeholder" = "Никнейм";
+
+/* Class = "UILabel"; text = "Общение во имя добра!"; ObjectID = "8jy-Tt-RxA"; */
+"8jy-Tt-RxA.text" = "Общение во имя добра!";
+
+/* Class = "UILabel"; text = "Если Вы не зарегистрированы, аккаунт будет создан автоматически"; ObjectID = "9lh-NL-ofO"; */
+"9lh-NL-ofO.text" = "Если Вы не зарегистрированы, аккаунт будет создан автоматически";
+
+/* Class = "UIButton"; normalTitle = "Войти"; ObjectID = "CXG-Ma-a9G"; */
+"CXG-Ma-a9G.normalTitle" = "Войти";
+
+/* Class = "UIButton"; normalTitle = "Получить код"; ObjectID = "E0i-xy-G1g"; */
+"E0i-xy-G1g.normalTitle" = "Получить код";
+
+/* Class = "UINavigationItem"; title = "Лента сообщений"; ObjectID = "NL7-pt-1pI"; */
+"NL7-pt-1pI.title" = "Лента сообщений";
+
+/* Class = "UITextField"; placeholder = "Код подтверждения"; ObjectID = "OEO-KU-kca"; */
+"OEO-KU-kca.placeholder" = "Код подтверждения";
+
+/* Class = "UITextField"; placeholder = "Номер телефона"; ObjectID = "oJr-it-O8t"; */
+"oJr-it-O8t.placeholder" = "Номер телефона";

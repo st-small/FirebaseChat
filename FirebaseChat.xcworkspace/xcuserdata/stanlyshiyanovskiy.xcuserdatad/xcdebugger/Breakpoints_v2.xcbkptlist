@@ -10,61 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FirebaseChat/Utilities/String+Extension.swift"
-            timestampString = "529688564.108687"
+            timestampString = "529689415.522966"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
             endingLineNumber = "20"
             landmarkName = "checkPhoneNumber(_:in:replacement:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FirebaseChat/Model/SignInModel.swift"
-            timestampString = "529688564.108754"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "sendCode(_:callback:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FirebaseChat.SignInModel.sendCode(Swift.String, callback: () -&gt; ()) -&gt; ()"
-                  moduleName = "FirebaseChat"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/stanlyshiyanovskiy/Git/FirebaseChat/FirebaseChat/Model/SignInModel.swift"
-                  timestampString = "529688564.128592"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FirebaseChat.SignInModel.sendCode(Swift.String, callback: () -&gt; ()) -&gt; ()"
-                  moduleName = "FirebaseChat"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/stanlyshiyanovskiy/Git/FirebaseChat/FirebaseChat/Model/SignInModel.swift"
-                  timestampString = "529688564.131927"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "48">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
