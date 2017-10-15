@@ -18,7 +18,7 @@
         <!--Sign InVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SignInVC" customModule="FirebaseChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInVC" id="BYZ-38-t0r" customClass="SignInVC" customModule="FirebaseChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -76,7 +76,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="295" height="25"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.87" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                         <connections>
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="n3q-BD-q7J"/>
                                         </connections>
@@ -169,8 +169,10 @@
                     </view>
                     <connections>
                         <outlet property="codeTF" destination="OEO-KU-kca" id="KM8-sq-6mk"/>
+                        <outlet property="getCode" destination="E0i-xy-G1g" id="Dwq-sJ-Dhz"/>
                         <outlet property="grayView" destination="6UA-sv-0kq" id="KzC-ru-1GM"/>
                         <outlet property="indicator" destination="vbJ-0Q-NX3" id="pdr-pZ-uXU"/>
+                        <outlet property="logIn" destination="CXG-Ma-a9G" id="FFM-6q-NZm"/>
                         <outlet property="nicknameTF" destination="2TZ-QP-Rsj" id="acc-4b-kJV"/>
                         <outlet property="phoneNum" destination="oJr-it-O8t" id="Fjr-yn-v2n"/>
                         <outlet property="stackView" destination="xlZ-Cw-3zb" id="gAV-qK-pFd"/>
@@ -191,7 +193,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="b5D-tB-g1N"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Лента сообщений" id="NL7-pt-1pI"/>
+                    <navigationItem key="navigationItem" title="Лента сообщений" id="NL7-pt-1pI">
+                        <barButtonItem key="rightBarButtonItem" title="Выход" id="R5i-CW-tWS">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="exit:" destination="uZf-Id-bE6" id="rOd-tH-Xvg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k8W-H8-HJF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -200,7 +209,6 @@
         <!--Navigation Controller-->
         <scene sceneID="c3V-oX-Lrf">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yEn-VD-fhC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="nav" automaticallyAdjustsScrollViewInsets="NO" id="rnQ-Rc-1EC" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yUa-S5-M9d">
@@ -217,6 +225,7 @@
                         <segue destination="uZf-Id-bE6" kind="relationship" relationship="rootViewController" id="PfX-I5-g8c"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yEn-VD-fhC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="882" y="134"/>
         </scene>

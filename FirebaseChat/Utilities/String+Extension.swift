@@ -20,6 +20,7 @@ extension String {
         guard components.count == 1 else { return (false, temp) }
         
         guard var newString = (textFieldString as NSString?)?.replacingCharacters(in: range, with: string) else { return (false, temp) }
+        guard newString.characters.count > 2 else { return (false, temp) }
         
         let validComponents = newString.components(separatedBy: validationSet)
         newString = validComponents.joined(separator: "")
@@ -67,5 +68,30 @@ extension String {
         }
         
         return (false, resultString)
+    }
+    
+    func checkCode(_ textFieldString: String, in range: NSRange, replacement string: String) -> (Bool, String) {
+        
+        let temp = ""
+        
+        let validationSet = NSCharacterSet.decimalDigits.inverted
+        let components = string.components(separatedBy: validationSet)
+        
+        guard components.count == 1 else { return (false, temp) }
+        
+        guard var newString = (textFieldString as NSString?)?.replacingCharacters(in: range, with: string) else { return (false, temp) }
+        
+        let validComponents = newString.components(separatedBy: validationSet)
+        newString = validComponents.joined(separator: "")
+        
+        return (false, newString)
+    }
+    
+    func contains(_ find: String) -> Bool{
+        return self.range(of: find) != nil
+    }
+    
+    func containsIgnoringCase(_ find: String) -> Bool{
+        return self.range(of: find, options: .caseInsensitive) != nil
     }
 }

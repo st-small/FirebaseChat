@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class SignInVC: UIViewController, UITextFieldDelegate {
+class SignInVC: UIViewController, UITextFieldDelegate, Alertable {
     
     let model = SignInModel()
     
@@ -22,10 +22,12 @@ class SignInVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var stackView2: UIStackView! { didSet { stackView2.isHidden = true
         } }
     @IBOutlet weak var nicknameTF: UITextField!
-    @IBOutlet weak var phoneNum: UITextField! 
+    @IBOutlet weak var phoneNum: UITextField!
     @IBOutlet weak var indicator: UIActivityIndicatorView! { didSet { indicator.alpha = 0 }}
     @IBOutlet weak var grayView: UIView! { didSet { grayView.alpha = 0 }}
     @IBOutlet weak var codeTF: UITextField!
+    @IBOutlet weak var getCode: UIButton!
+    @IBOutlet weak var logIn: UIButton!
     
     // MARK: - Properties -
     
@@ -57,20 +59,44 @@ class SignInVC: UIViewController, UITextFieldDelegate {
         if textField == phoneNum {
             let result = String().checkPhoneNumber(textField.text!, in: range, replacement: string)
             textField.text = result.1
+            if result.1.characters.count == 19 {
+                getCode.sendActions(for: .touchUpInside)
+            }
+            return result.0
+        } else if textField == codeTF {
+            let result = String().checkCode(textField.text!, in: range, replacement: string)
+            textField.text = result.1
+            if result.1.characters.count == 6 {
+                logIn.sendActions(for: .touchUpInside)
+            }
             return result.0
         }
-        
+
         return true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == phoneNum && textField.text == "" {
+            phoneNum.hideRedUnderline()
             textField.text = "+38 "
         }
     }
     
     // MARK: - Actions -
     @IBAction func sendCode(_ sender: UIButton) {
+        guard !(phoneNum.text?.isEmpty)! && phoneNum.text != "+38 " else {
+            showAlert(title: "Ошибка ввода!", message: "Ввведите номер телефона", actionTitle: "ОК")
+            UIView.animate(withDuration: 0.3, animations: {
+                self.phoneNum.useRedUnderline()
+            })
+            return
+        }
+        if nicknameTF.text != nil {
+            let defaults = UserDefaults.standard
+            defaults.set(nicknameTF.text, forKey: "userName")
+            defaults.synchronize()
+        }
+        
         if phoneNum.text != nil {
             model.sendCode(phoneNum.text!, callback: { 
                 self.showActivitySpinner()
@@ -101,10 +127,8 @@ class SignInVC: UIViewController, UITextFieldDelegate {
         UIView.animate(withDuration: 0.7) {
             self.grayView.alpha = 0.6
             self.grayView.backgroundColor = UIColor.lightGray
-            
             self.indicator.alpha = 1
             self.indicator.startAnimating()
-            
             self.stackView.isHidden = true
         }
     }

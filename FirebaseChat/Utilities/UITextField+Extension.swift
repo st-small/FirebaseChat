@@ -20,7 +20,7 @@ extension UITextField {
         
         if buttonNeeds {
             let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-            let done: UIBarButtonItem = UIBarButtonItem(title: "Return", style: UIBarButtonItemStyle.done, target: self, action: myAction)
+            let done: UIBarButtonItem = UIBarButtonItem(title: "Скрыть", style: UIBarButtonItemStyle.done, target: self, action: myAction)
             done.tintColor = UIColor.blue
             
             var items = [UIBarButtonItem]()
@@ -28,6 +28,25 @@ extension UITextField {
             items.append(done)
             
             doneToolbar.items = items
+        }
+    }
+    
+    func useRedUnderline() {
+        let border = CALayer()
+        border.name = "border"
+        let borderWidth = CGFloat(1.0)
+        border.borderColor = UIColor.red.cgColor
+        border.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
+        border.borderWidth = borderWidth
+        self.layer.addSublayer(border)
+        self.layer.masksToBounds = true
+    }
+    
+    func hideRedUnderline() {
+        for layer in self.layer.sublayers! {
+            if layer.name == "border" {
+                layer.removeFromSuperlayer()
+            }
         }
     }
 }
