@@ -43,6 +43,7 @@ class MessagesModel: MessagesProtocol {
     lazy var incomingBubbleImageView: JSQMessagesBubbleImage = self.setupIncomingBubble()
     var isInSearch: Bool = false
     
+    // customize message view controller
     func load(_ sender: JSQMessagesViewController) {
         senderId = (Auth.auth().currentUser?.uid)!
         sender.senderId = senderId
@@ -53,6 +54,7 @@ class MessagesModel: MessagesProtocol {
         observeMessages(sender)
     }
     
+    // customize UISearchBar
     func createSearchBar(_ sender: JSQMessagesViewController) -> UISearchBar {
         let searchBar = UISearchBar()
         searchBar.placeholder = "Поиск по тексту в сообщении..."
@@ -68,6 +70,7 @@ class MessagesModel: MessagesProtocol {
         return searchBar
     }
     
+    // text did change delegate of UISearchBar
     func searchBarTextDidChange(_ text: String, sender: JSQMessagesViewController) -> Bool {
         if text == "" {
             isInSearch = false
@@ -80,6 +83,7 @@ class MessagesModel: MessagesProtocol {
         }
     }
     
+    // hide avatars in message view controller
     func noAvatars(_ sender: JSQMessagesViewController) {
         sender.collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         sender.collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
@@ -94,6 +98,7 @@ class MessagesModel: MessagesProtocol {
         }
     }
     
+    // message bubbles logic (what kind of bubble needs to show)
     func messageBubble(_ indexPath: IndexPath) -> JSQMessageBubbleImageDataSource {
         let message = messages[indexPath.item]
         if message.senderId == senderId {
@@ -103,11 +108,13 @@ class MessagesModel: MessagesProtocol {
         }
     }
     
+    // messages text color
     func bubbleColor(_ indexPath: IndexPath) -> UIColor {
         let message = messages[indexPath.item]
         return message.senderId == senderId ? UIColor.white : UIColor.black
     }
     
+    // show sender nickname under the message bubble
     func bubbleAttributedText(_ indexPath: IndexPath) -> NSAttributedString? {
         let message = messages[indexPath.item]
         switch message.senderId {
@@ -123,6 +130,7 @@ class MessagesModel: MessagesProtocol {
     }
     
     // MARK: - Firebase related methods -
+    // GET messages
     func observeMessages(_ sender: JSQMessagesViewController) {
         messageRef = heapRef.child("messages")
         
@@ -143,6 +151,7 @@ class MessagesModel: MessagesProtocol {
         })
     }
     
+    // SEARCH messages
     func findMessages(_ searchText: String, sender: JSQMessagesViewController) {
         messages.removeAll()
         messageRef = heapRef.child("messages")
@@ -162,6 +171,7 @@ class MessagesModel: MessagesProtocol {
         })
     }
     
+    // show typing state
     func observeTyping(_ sender: JSQMessagesViewController) {
         let typingIndicatorRef = heapRef.child("typingIndicator")
         userIsTypingRef = typingIndicatorRef.child(senderId)
@@ -179,6 +189,7 @@ class MessagesModel: MessagesProtocol {
         }
     }
     
+    // send message button pressed logic
     func didPressSend(_ text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         let itemRef = messageRef.childByAutoId()
         let messageItem = [
@@ -192,6 +203,7 @@ class MessagesModel: MessagesProtocol {
         isTyping = false
     }
     
+    // insert message into heap array
     private func addMessage(withId id: String, name: String, text: String) {
         if let message = JSQMessage(senderId: id, displayName: name, text: text) {
             messages.append(message)
@@ -199,6 +211,7 @@ class MessagesModel: MessagesProtocol {
     }
     
     // MARK: - UI and User Interaction -
+    // tune message bubbles depends of it's kind (self or other messages)
     private func setupOutgoingBubble() -> JSQMessagesBubbleImage {
         let bubbleImageFactory = JSQMessagesBubbleImageFactory()
         return bubbleImageFactory!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
@@ -219,6 +232,7 @@ class MessagesModel: MessagesProtocol {
         return "Аноним"
     }
     
+    // clear user name in userDefaults if log out button pressed
     func clearUser() {
         let defaults = UserDefaults.standard
         defaults.removeObject(forKey: "userName")

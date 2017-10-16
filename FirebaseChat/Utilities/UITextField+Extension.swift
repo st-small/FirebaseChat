@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension UITextField {
-    
+    // add custom pole for numPad iPhone
     func addPoleForButtonsToKeyboard(myAction: Selector?, buttonNeeds: Bool) {
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 300, height: 40))
         doneToolbar.barStyle = UIBarStyle.default
@@ -31,6 +31,7 @@ extension UITextField {
         }
     }
     
+    // red frame to show wrong value in textField
     func useRedUnderline() {
         let border = CALayer()
         border.name = "border"
@@ -42,6 +43,7 @@ extension UITextField {
         self.layer.masksToBounds = true
     }
     
+    // hiding red frame in textField
     func hideRedUnderline() {
         for layer in self.layer.sublayers! {
             if layer.name == "border" {

@@ -10,6 +10,7 @@ import Foundation
 
 extension String {
     
+    // phoneNumber validation
     func checkPhoneNumber(_ textFieldString: String, in range: NSRange, replacement string: String) -> (Bool, String) {
         
         let temp = "+38"
@@ -70,6 +71,7 @@ extension String {
         return (false, resultString)
     }
     
+    // verification code validation
     func checkCode(_ textFieldString: String, in range: NSRange, replacement string: String) -> (Bool, String) {
         
         let temp = ""

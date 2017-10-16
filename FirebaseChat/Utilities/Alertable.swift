@@ -12,6 +12,7 @@ protocol Alertable {}
 
 extension Alertable where Self: UIViewController {
     
+    // alert generic method
     func showAlert(title: String, message: String, actionTitle: String) {
         let alertView = UIAlertController(title: title,
                                           message: message,
