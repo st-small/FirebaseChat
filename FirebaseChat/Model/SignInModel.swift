@@ -24,7 +24,7 @@ class SignInModel: SignInModelProtocol {
     
     // verification code request
     func sendCode(_ phoneNumber: String, callback: @escaping ()->()) {
-        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber) { (verificationID, error) in
+        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { (verificationID, error) in
             if error != nil {
                 print(error!.localizedDescription)
             } else {

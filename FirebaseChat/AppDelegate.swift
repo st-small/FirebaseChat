@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import Fabric
+import Crashlytics
 import UserNotifications
 
 @UIApplicationMain
@@ -29,6 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             UIApplication.shared.registerUserNotificationSettings(notificationSettings)
             UIApplication.shared.registerForRemoteNotifications()
         }
+        
+        Fabric.with([Crashlytics.self])
+        
         return true
     }
 

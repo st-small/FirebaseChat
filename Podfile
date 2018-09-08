@@ -10,6 +10,8 @@ pod 'Firebase/Core'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'Firebase/Storage'
+pod 'Fabric', '~> 1.7.11'
+pod 'Crashlytics', '~> 3.10.7'
 pod 'JSQMessagesViewController'
 
 end
